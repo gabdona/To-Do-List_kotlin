@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "carreiras.com.github.todolist"
+    namespace = "gab_dona.com.github.toDoList"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "carreiras.com.github.todolist"
+        applicationId = "gab_dona.com.github.toDoList"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -56,10 +56,16 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)
 
-    // Testes
+    // Testes Unitários
     testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
+
+    // Testes Instrumentados (androidTest)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
+
+    // Debug
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 }
