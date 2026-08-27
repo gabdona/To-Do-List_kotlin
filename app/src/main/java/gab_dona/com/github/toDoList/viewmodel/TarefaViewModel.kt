@@ -21,11 +21,17 @@ class TarefaViewModel(private val repository: TarefaRepository) : ViewModel() {
             initialValue = emptyList()
         )
 
-    fun inserir(tarefa: Tarefa) = viewModelScope.launch { repository.inserir(tarefa) }
+    fun inserir(tarefa: Tarefa) = viewModelScope.launch {
+        repository.inserir(tarefa)
+    }
 
-    fun atualizar(tarefa: Tarefa) = viewModelScope.launch { repository.atualizar(tarefa) }
+    fun atualizar(tarefa: Tarefa) = viewModelScope.launch {
+        repository.atualizar(tarefa)
+    }
 
-    fun deletar(tarefa: Tarefa) = viewModelScope.launch { repository.deletar(tarefa) }
+    fun deletar(tarefa: Tarefa) = viewModelScope.launch {
+        repository.deletar(tarefa)
+    }
 
     companion object {
         fun factory(context: Context): ViewModelProvider.Factory =

@@ -1,13 +1,11 @@
-package gab_dona.com.github.todolist
+package gab_dona.com.github.toDoList
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.material3.Scaffold
 import androidx.lifecycle.viewmodel.compose.viewModel
 import gab_dona.com.github.toDoList.navigation.AppNavigation
-
 import gab_dona.com.github.toDoList.ui.theme.FiaptodolistTheme
 import gab_dona.com.github.toDoList.viewmodel.TarefaViewModel
 

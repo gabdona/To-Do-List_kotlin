@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
 }
@@ -31,6 +32,11 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    // Configuração local que não exige download externo do Java
+    kotlinOptions {
+        jvmTarget = "17"
     }
 
     buildFeatures {
@@ -65,6 +71,11 @@ dependencies {
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.kotlinx.coroutines.test)
+
+    // A SOLUÇÃO: Bibliotecas necessárias para o AndroidJUnitRunner não "crashar" o emulador
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation("androidx.test:runner:1.6.2")
+    androidTestImplementation("androidx.test:core:1.6.1")
 
     // Debug
     debugImplementation(libs.androidx.compose.ui.tooling)

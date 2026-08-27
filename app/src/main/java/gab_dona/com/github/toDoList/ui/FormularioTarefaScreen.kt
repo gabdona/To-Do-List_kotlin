@@ -1,6 +1,5 @@
 package gab_dona.com.github.toDoList.ui
 
-
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize

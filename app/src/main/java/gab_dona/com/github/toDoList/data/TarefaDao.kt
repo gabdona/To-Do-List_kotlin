@@ -1,9 +1,9 @@
 package gab_dona.com.github.toDoList.data
 
-
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
@@ -14,7 +14,7 @@ interface TarefaDao {
     @Query("SELECT * FROM tarefas ORDER BY dataCriacao DESC")
     fun listarTodas(): Flow<List<Tarefa>>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun inserir(tarefa: Tarefa)
 
     @Update

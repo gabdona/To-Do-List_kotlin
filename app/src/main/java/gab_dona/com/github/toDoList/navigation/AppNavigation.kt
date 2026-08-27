@@ -1,10 +1,11 @@
 package gab_dona.com.github.toDoList.navigation
 
-
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import gab_dona.com.github.toDoList.ui.FormularioTarefaScreen
 import gab_dona.com.github.toDoList.ui.ListaTarefasScreen
 import gab_dona.com.github.toDoList.viewmodel.TarefaViewModel
@@ -21,8 +22,13 @@ fun AppNavigation(viewModel: TarefaViewModel) {
                 onEditarTarefa = { id -> navController.navigate("formulario/$id") }
             )
         }
-        composable("formulario/{tarefaId}") { backStackEntry ->
-            val tarefaId = backStackEntry.arguments?.getString("tarefaId")?.toInt() ?: 0
+        composable(
+            route = "formulario/{tarefaId}",
+            arguments = listOf(
+                navArgument("tarefaId") { type = NavType.IntType; defaultValue = 0 }
+            )
+        ) { backStackEntry ->
+            val tarefaId = backStackEntry.arguments?.getInt("tarefaId") ?: 0
             FormularioTarefaScreen(
                 viewModel = viewModel,
                 tarefaId = tarefaId,
